@@ -32,7 +32,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.ibb.co/KDwrt2z/wordle-final.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.ibb.co/KDwrt2z/wordle-final.gif'/>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
