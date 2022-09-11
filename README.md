@@ -4,6 +4,11 @@ Submitted by: **Jason Saini**
 
 This is an android app that recreates a simple version of the popular word game [Wordle](https://www.nytimes.com/games/wordle/index.html). 
 
+## Legend:
+O - Letter is in correct position
+X - Letter is not in answer
++ - Letter is in answer, but wrong position
+
 Time spent: **4** hours spent in total
 
 ## Required Features
