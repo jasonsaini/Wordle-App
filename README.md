@@ -32,7 +32,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://im5.ezgif.com/tmp/ezgif-5-332b025599.gif'/>
+<img src='https://media.giphy.com/media/mClvQfpVgMSK7tApuI/giphy.gif'/>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
