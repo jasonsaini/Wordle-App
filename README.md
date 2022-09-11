@@ -6,7 +6,9 @@ This is an android app that recreates a simple version of the popular word game 
 
 ## Legend:
 'O' - Letter is in correct position
+
 'X' - Letter is not in answer
+
 '+' - Letter is in answer, but wrong position
 
 Time spent: **4** hours spent in total
