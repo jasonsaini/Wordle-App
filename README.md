@@ -32,7 +32,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.ibb.co/KDwrt2z/wordle-final.gif'/>
+<img src='https://im5.ezgif.com/tmp/ezgif-5-332b025599.gif'/>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
