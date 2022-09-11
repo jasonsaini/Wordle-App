@@ -1,22 +1,16 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import com.example.myapplication.databinding.ActivityMainBinding
-import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +30,17 @@ class MainActivity : AppCompatActivity() {
         }
         return result
     }
+    fun hideKeyboard(activity: Activity) {
+        val imm: InputMethodManager =
+            activity.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view: View? = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,7 +56,8 @@ class MainActivity : AppCompatActivity() {
 
 
         entry_button.setOnClickListener{
-            println("Button clicked!")
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
             var userGuess = guessEntry.text.toString()
             if(userGuess.length != 4)
             {
@@ -108,6 +114,7 @@ class MainActivity : AppCompatActivity() {
 
         reset_button.setOnClickListener{
             var root = findViewById<ConstraintLayout>(R.id.constraintLayout)
+            answer = word_list.getRandomFourLetterWord();
             guessCount = 0
             root.children.forEach{
                 if(it is TextView && (it.text.toString() != "Wordle" ) && (it.text.toString() != "GUESS!") && (it.text.toString() != "RESET"))
