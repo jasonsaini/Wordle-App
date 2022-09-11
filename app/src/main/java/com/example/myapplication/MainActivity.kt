@@ -16,6 +16,7 @@ import androidx.core.view.isVisible
 class MainActivity : AppCompatActivity() {
 
     private fun checkGuess(guess: String, wordToGuess: String) : String {
+
         var result = ""
         for (i in 0..3) {
             if (guess[i] == wordToGuess[i]) {
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         entry_button.setOnClickListener{
             val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-            var userGuess = guessEntry.text.toString()
+            var userGuess = guessEntry.text.toString().uppercase()
             if(userGuess.length != 4)
             {
                 return@setOnClickListener
