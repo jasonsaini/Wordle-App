@@ -1,4 +1,4 @@
-# Android Project 1 - *Wordle Appe*
+# Android Project 1 - *Wordle App*
 
 Submitted by: **Jason Saini**
 
