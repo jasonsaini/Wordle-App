@@ -1,8 +1,6 @@
 package com.example.myapplication
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -15,6 +13,8 @@ import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
 
+
+    // generate string that checks guess accuracy
     private fun checkGuess(guess: String, wordToGuess: String) : String {
 
         var result = ""
@@ -31,35 +31,34 @@ class MainActivity : AppCompatActivity() {
         }
         return result
     }
-    fun hideKeyboard(activity: Activity) {
-        val imm: InputMethodManager =
-            activity.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        //Find the currently focused view, so we can grab the correct window token from it.
-        var view: View? = activity.currentFocus
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        if (view == null) {
-            view = View(activity)
-        }
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0)
+    fun hideKeyboard() {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+        // initialize layout
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // get word list and first answer
         var word_list = FourLetterWordList();
         var answer = word_list.getRandomFourLetterWord();
 
+        // initialize buttons
         val entry_button = findViewById<Button>(R.id.guessSubmitBtn)
         var reset_button = findViewById<Button>(R.id.resetBtn);
         reset_button.isVisible = false;
 
+        // grab guess data
         var guessCount = 0
         var guessEntry = findViewById<EditText>(R.id.guessEntry)
 
 
         entry_button.setOnClickListener{
-            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+            hideKeyboard();
+
             var userGuess = guessEntry.text.toString().uppercase()
+
             if(userGuess.length != 4)
             {
                 return@setOnClickListener
