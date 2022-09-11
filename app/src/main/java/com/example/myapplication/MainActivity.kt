@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var word_list = FourLetterWordList();
-        //var answer = word_list.getRandomFourLetterWord();
-        var answer = "boat"
+        var answer = word_list.getRandomFourLetterWord();
+
         val entry_button = findViewById<Button>(R.id.guessSubmitBtn)
         var reset_button = findViewById<Button>(R.id.resetBtn);
         reset_button.isVisible = false;
